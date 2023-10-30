@@ -9,11 +9,11 @@ ruby:
 			= class_name
 	table
 		tr
-			- class_columns.each do |column|
-				th
-					=	column.humanize.capitalize
+		- class_columns.each do |column|
+			th
+				=	column.humanize.capitalize
 		- class_rows.each do |column|
 			tr
-				- column.attributes.values.each do |value|
+				- column&.attributes&.values.each do |value|
 					td
 						=	value
