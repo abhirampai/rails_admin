@@ -1,0 +1,15 @@
+ruby:
+  models = ApplicationRecord.subclasses.map(&:name)
+
+.header
+  .right
+    | rails_admin 
+  .left
+    .dropdown 
+      .dropbtn
+        | Models 
+        .fa.fa-caret-down
+      .dropdown-content
+        - models.each do |model|
+          .models-select
+            = model
