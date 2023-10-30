@@ -12,4 +12,5 @@ ruby:
       .dropdown-content
         - models.each do |model|
           .models-select
-            = model
+            = link_to dashboard_path(class_name: model, format: :js)
+              = model

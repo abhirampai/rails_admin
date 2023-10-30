@@ -6,12 +6,12 @@
 }
 
 .right {
-    font: 700;
+    font-weight: 700;
     font-size: x-large;
 }
 
 .left {
-    font: 500;
+    font-weight: 500;
 }
 
 .dropdown {
@@ -52,5 +52,14 @@
 }
 
 .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px;
+  font-size: medium;
+  font-weight: 500;
+  text-decoration: none;
   display: block;
 }
