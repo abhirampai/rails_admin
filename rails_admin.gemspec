@@ -23,6 +23,6 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency "rails", ">= 7.0.8"
-  spec.add_dependency "slim"
   spec.add_dependency "slim-rails"
+  spec.add_dependency "slim"
 end

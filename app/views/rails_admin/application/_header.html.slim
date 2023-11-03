@@ -1,7 +1,7 @@
 ruby:
   models = ApplicationRecord.subclasses.map(&:name)
 
-.header
+.header data-controller="header"
   .right
     | rails_admin 
   .left
@@ -11,6 +11,5 @@ ruby:
         .fa.fa-caret-down
       .dropdown-content
         - models.each do |model|
-          .models-select
-            = link_to dashboard_path(class_name: model)
-              = model
+          .models-select data-action="click->header#changeTable" data-model=model
+            = model
