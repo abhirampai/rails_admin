@@ -1,11 +1,4 @@
-ruby:
-	class_name = @model.name
-	js_controller = "dashboard--show"
-
-.dashboard data-controller=js_controller
+.dashboard
 	.dashboard-header
-		.header 
-			.table-name = class_name
-			.search-box
-				input type="text" data-target="#{js_controller}.searchTerm" data-action="keydown.enter->#{js_controller}#searchTable"
+		= render partial: "rails_admin/dashboards/header"
 	= render partial: "rails_admin/dashboards/table"

@@ -1,2 +1,5 @@
-document.querySelector(".dashboard-header .header .table-name").innerHTML = '<%= @model.name %>'
+<% if params[:change_table].present? %>
+    document.querySelector(".dashboard-header .header").outerHTML = '<%= j render partial: "rails_admin/dashboards/header" %>'
+<% end %>
+
 document.querySelector(".dashboard-table").outerHTML = '<%= j render partial: "rails_admin/dashboards/table", locals: { filtered_rows: @filtered_query } %>'
