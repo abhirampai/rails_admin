@@ -1,19 +1,8 @@
 ruby:
 	class_name = @model.name
-	class_columns = @model.column_names
-	class_rows = @model.all
 
 .dashboard 
 	.dashboard-header
 		.header 
 			= class_name
-	table
-		tr
-		- class_columns.each do |column|
-			th
-				=	column.humanize.capitalize
-		- class_rows.each do |column|
-			tr
-				- column&.attributes&.values.each do |value|
-					td
-						=	value
+	= render partial: "rails_admin/dashboards/table"

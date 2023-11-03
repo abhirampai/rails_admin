@@ -1,1 +1,2 @@
-document.querySelector("dashboard").outerHTML = '<%= render "rails_admin/dashboards/show"%>'
+document.querySelector(".dashboard-header .header").innerHTML = '<%= @model.name %>'
+document.querySelector(".dashboard-table").outerHTML = '<%= j render partial: "rails_admin/dashboards/table" %>'

@@ -1,0 +1,14 @@
+ruby: 
+    class_columns = @model.column_names
+	class_rows = @model.all
+
+table.dashboard-table
+    tr
+    - class_columns.each do |column|
+        th
+            =	column.humanize.capitalize
+    - class_rows.each do |column|
+        tr
+            - column&.attributes&.values.each do |value|
+                td
+                    =	value
