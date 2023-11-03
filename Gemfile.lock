@@ -3,6 +3,7 @@ PATH
   specs:
     rails_admin (0.1.0)
       rails (>= 7.0.8)
+      ransack
       slim
       slim-rails
 
@@ -142,6 +143,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.1.0)
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     slim (5.1.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -174,6 +179,7 @@ PLATFORMS
 DEPENDENCIES
   puma
   rails_admin!
+  ransack
   sprockets-rails
   sqlite3
 

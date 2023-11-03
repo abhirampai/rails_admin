@@ -7,6 +7,13 @@ module RailsAdmin
 
     def load_model
       @model = params[:class_name]&.constantize || ::ApplicationRecord.subclasses.first
+      filtered_query
+    end
+
+    def filtered_query
+      searchable_columns = @model.columns_hash.map { |c, k| c if k.type == :string }.compact.join('_or_')
+      key = "#{searchable_columns}_cont"
+      @filtered_query = @model.ransack({ "#{key}": params[:search_term] }).result
     end
   end
 end
