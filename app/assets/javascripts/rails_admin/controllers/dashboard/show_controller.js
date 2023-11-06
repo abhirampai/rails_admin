@@ -10,6 +10,9 @@ Stimulus.register(
         this.initializeSearch();
       }
       this.timeOutId = null;
+      this.className = document.querySelector(
+        ".dashboard .header .table-name"
+      ).innerHTML;
     }
 
     initializeSearch() {
@@ -28,8 +31,18 @@ Stimulus.register(
         url: dashboardAPI.show,
         data: {
           search_term: e.target.value,
-          class_name: document.querySelector(".dashboard .header .table-name")
-            .innerHTML,
+          class_name: this.className,
+        },
+        type: "get",
+        dataType: "script",
+      });
+    }
+
+    openModal() {
+      $.ajax({
+        url: dashboardAPI.new,
+        data: {
+          class_name: this.className,
         },
         type: "get",
         dataType: "script",
