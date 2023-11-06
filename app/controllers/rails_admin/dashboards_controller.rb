@@ -2,23 +2,37 @@ module RailsAdmin
   class DashboardsController < ApplicationController
     before_action :load_model
     before_action :filtered_query, only: :show
-    before_action :required_fields_for_new_form, only: :new
+    before_action :required_fields_for_new_form, only: %i[new edit]
+    before_action :fetch_record, only: %i[edit destroy update]
 
     def show; end
 
     def new; end
 
+    def edit; end
+
     def create
-      permitted_params = params[@model.name].permit(required_fields_for_new_form.map(&:first))
       @created_record = @model.create(permitted_params)
       respond_with_error(@created_record.errors.full_messages) if @created_record.errors.present?
     end
 
     def destroy
-      @deleted_record = { id: params[:id] } if @model.find_by(id: params[:id]).destroy
+      @deleted_record = { id: params[:id] } if @record.destroy
+    end
+
+    def update
+      @updated_record = @record if @record.update(permitted_params)
     end
 
     private
+
+    def permitted_params
+      params[@model.name].permit(required_fields_for_new_form.map(&:first))
+    end
+
+    def fetch_record
+      @record = @model.find_by(id: params[:id])
+    end
 
     def respond_with_error(errors)
       @error = errors.join(", ")

@@ -1,10 +1,8 @@
 <% if @deleted_record.present? %>
-    let rowToRemove = document.querySelector("table tr[data-id='<%= @deleted_record[:id] %>']");
-    if(rowToRemove) {
-     rowToRemove.remove();
+    if(document.querySelector("table tr[data-id='<%= @deleted_record[:id] %>']")) {
+     document.querySelector("table tr[data-id='<%= @deleted_record[:id] %>']").remove();
      alert("Record deleted successfully");
     }
-
 <% else %>
     alert("Something went wrong")
 <% end %>

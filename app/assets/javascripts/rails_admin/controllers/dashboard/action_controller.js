@@ -8,7 +8,7 @@ Stimulus.register(
       this.rowId = this.element.dataset.id;
     }
 
-    deleteRecord(e) {
+    deleteRecord() {
       const confirmation = confirm(
         "Are you sure you want to delete the record!"
       );
@@ -21,6 +21,18 @@ Stimulus.register(
           class_name: this.className,
         },
         type: "delete",
+        dataType: "script",
+      });
+    }
+
+    editRecord() {
+      $.ajax({
+        url: dashboardAPI.edit,
+        data: {
+          id: this.rowId,
+          class_name: this.className,
+        },
+        type: "get",
         dataType: "script",
       });
     }
