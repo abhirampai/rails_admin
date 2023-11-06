@@ -1,0 +1,10 @@
+<% if @updated_record.present? %>
+    document.querySelector(".modal-check").checked = false
+    document.querySelector(".js-content-modal").innerHTML = ""
+    if(document.querySelector("table tr[data-id='<%= @updated_record.id %>']")) {
+     document.querySelector("table tr[data-id='<%= @updated_record.id %>']").outerHTML = '<%= j render partial: "rails_admin/dashboards/table/row", locals: { row: @updated_record }%>';
+     alert("Record updated successfully");
+    }
+<% else %>
+    alert("Something went wrong")
+<% end %>

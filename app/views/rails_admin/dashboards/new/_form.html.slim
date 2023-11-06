@@ -1,11 +1,15 @@
 ruby:
     model = @model.name
     js_controller = "new--form"
+    record = local_assigns.fetch(:record, nil)
+    method = record.present? ? "put" : "post"
+    title = record.present? ? "Update" : "Add new"
+    confirm_btn = record.present? ? "Update" : "Save"
 
 input.modal-check type="checkbox" id="new_record_form"
 .modal-container data-controller=js_controller
     .modal-header
-        h2 Add new #{model}
+        h2 #{title} #{model}
         label.modal-head-close for="new_record_form"
     .modal-body
         - @required_fields_for_new_form.each do |field, type|
@@ -14,7 +18,7 @@ input.modal-check type="checkbox" id="new_record_form"
                 .row-field
                     p.field-label 
                         = field.capitalize 
-                    = select_tag field,
+                    = select_tag record&.send(field),
                         options_for_select(enum_for_field.keys),
                         required:true,
                         class: "ra-input",
@@ -23,8 +27,9 @@ input.modal-check type="checkbox" id="new_record_form"
                 .row-field
                     p.field-label
                         = field.capitalize 
-                    input.ra-input type="text" data-target="#{js_controller}.formInput" data-key=field required="true" placeholder="Enter #{field}"
+                    input.ra-input type="text" data-target="#{js_controller}.formInput" data-key=field required="true" placeholder="Enter #{field}" value=record&.send(field)
 
     .modal-footer
-        label.ra-button-secondry for="new_record_form" Close
-        button.ra-button-primary data-action="#{js_controller}#save" Save
+        label.ra-button-secondary for="new_record_form" Close
+        button.ra-button-primary data-action="#{js_controller}#save" data-row-id=record&.id data-method=method 
+            = confirm_btn

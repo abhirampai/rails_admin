@@ -92,9 +92,23 @@ $ra-border-radius: 10px;
   content: "X";
 }
 
-.ra-button-secondry {
+.ra-button-secondary {
   @extend .ra-button;
 
   color: white;
   background-color: gray;
+}
+
+.ra-button-danger {
+  @extend .ra-button;
+  color: white;
+  background-color: darkred;
+}
+
+.trash::after {
+  content: "\01F5D1";
+}
+
+.edit::after {
+  content: "\00270E";
 }
