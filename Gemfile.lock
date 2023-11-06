@@ -4,6 +4,7 @@ PATH
     rails_admin (0.1.0)
       rails (>= 7.0.8)
       ransack
+      sassc-rails
       slim
       slim-rails
 
@@ -80,6 +81,7 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     erubi (1.12.0)
+    ffi (1.15.5)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -147,6 +149,14 @@ GEM
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     slim (5.1.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -179,7 +189,6 @@ PLATFORMS
 DEPENDENCIES
   puma
   rails_admin!
-  ransack
   sprockets-rails
   sqlite3
 

@@ -4,9 +4,13 @@ ruby:
 
 .header data-controller=js_controller
     .table-name = class_name
-    .search-box
-        input.search-input[
-            type="text"
-            data-target="#{js_controller}.searchTerm"
-            data-action="keydown.enter->#{js_controller}#searchTable"
-            placeholder="Search #{@searchable_columns.join(", ")}"]
+    .right
+        .search-box
+            input.search-input.ra-input[
+                type="text"
+                data-target="#{js_controller}.searchTerm"
+                data-action="keydown.enter->#{js_controller}#searchTable"
+                placeholder="Search #{@searchable_columns.join(", ")}"]
+        .create-btn
+            .ra-button-primary data-action="click->#{js_controller}#openModal"
+                | + Create #{class_name}
