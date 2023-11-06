@@ -7,4 +7,5 @@ table.dashboard-table
     - class_columns.each do |column|
         th
             =	column.humanize.capitalize
+    th Actions
     = render partial: "rails_admin/dashboards/table/row", collection: class_rows, as: :row

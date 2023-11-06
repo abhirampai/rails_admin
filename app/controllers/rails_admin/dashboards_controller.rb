@@ -14,6 +14,10 @@ module RailsAdmin
       respond_with_error(@created_record.errors.full_messages) if @created_record.errors.present?
     end
 
+    def destroy
+      @deleted_record = { id: params[:id] } if @model.find_by(id: params[:id]).destroy
+    end
+
     private
 
     def respond_with_error(errors)

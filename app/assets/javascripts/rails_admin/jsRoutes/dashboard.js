@@ -4,4 +4,5 @@ const dashboardAPI = {
   edit: "/dashboard/edit",
   create: "/dashboard",
   update: "/dashboard",
+  destroy: "/dashboard",
 };

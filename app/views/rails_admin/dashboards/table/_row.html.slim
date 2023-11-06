@@ -1,4 +1,9 @@
-tr
+ruby:
+    js_controller="dashboard--action"
+tr data-id=row.id data-controller=js_controller
     - row&.attributes&.values.each do |value|
         td
             =	value
+    td.actions
+        p.edit.ra-button-secondary Edit&nbsp;
+        p.trash.ra-button-danger data-action="click->#{js_controller}#deleteRecord" Delete&nbsp;
