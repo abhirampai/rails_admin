@@ -9,5 +9,9 @@ const baseUrl = window.location.href.split("/").pop();
 $.ajaxSetup({
   beforeSend: (_, options) => {
     options.url = baseUrl + options.url;
+    options.header = {
+      "X-CSRF-Token": document.head.querySelector('meta[name="csrf-token')
+        .content,
+    };
   },
 });

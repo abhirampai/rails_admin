@@ -1,0 +1,8 @@
+<% if @created_record.persisted? %>
+    document.querySelector(".modal-check").checked = false
+    const newRow = "<%= j render partial: "rails_admin/dashboards/table/row", locals: { row: @created_record }%>"
+    document.querySelector(".dashboard-table").insertAdjacentHTML("beforeend", newRow)
+    alert("Created new record")
+<% else %>
+    alert("Something went wrong")
+<% end %>

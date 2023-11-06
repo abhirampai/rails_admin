@@ -7,8 +7,4 @@ table.dashboard-table
     - class_columns.each do |column|
         th
             =	column.humanize.capitalize
-    - class_rows.each do |column|
-        tr
-            - column&.attributes&.values.each do |value|
-                td
-                    =	value
+    = render partial: "rails_admin/dashboards/table/row", collection: class_rows, as: :row

@@ -1,0 +1,50 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.dashboard {
+  padding: 15px;
+}
+
+.dashboard-header {
+  .header {
+    font: 400;
+    font-size: larger;
+    padding: 15px 0;
+  }
+}
+
+.search-input {
+  font-size: 16px;
+}
+
+.create-btn > button {
+  font-size: 16px;
+}
+
+.row-field {
+  display: flex;
+  column-gap: 10px;
+  flex-direction: column;
+
+  > .ra-input {
+    width: 35%;
+  }
+}
+
+.field-label {
+  font-size: x-large;
+}

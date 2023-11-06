@@ -11,6 +11,7 @@
 <body>
 <%= render partial: "rails_admin/header" %>
 <%= yield %>
+<%= yield(:modal) if content_for(:modal) %>
 
 </body>
 </html>
