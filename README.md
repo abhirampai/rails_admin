@@ -21,6 +21,10 @@ Or install it yourself as:
 ```bash
 $ gem install rails_admin
 ```
+
+This engine uses ransack so please configure ransack in the host application.
+
+refer [ransack](https://github.com/activerecord-hackery/ransack) to setup the same.
 ## Contributing
 You can contribute by raising pr's directly or by forking this repo.
 
