@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "slim-rails"
   spec.add_dependency "slim"
   spec.add_dependency "ransack"
+  spec.add_dependency "sassc-rails"
 end
